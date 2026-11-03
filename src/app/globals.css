@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --brand: #0f766e;
+}
+
+html {
+  font-family: Vazirmatn, Tahoma, "Segoe UI", sans-serif;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-1 rounded-lg px-4 py-2 text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-teal-700 text-white hover:bg-teal-800;
+  }
+  .btn-secondary {
+    @apply border border-slate-300 bg-white text-slate-700 hover:bg-slate-50;
+  }
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700;
+  }
+  .input {
+    @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-100;
+  }
+  .card {
+    @apply rounded-xl border border-slate-200 bg-white p-5 shadow-sm;
+  }
+  .th {
+    @apply whitespace-nowrap px-3 py-2.5 text-right text-xs font-semibold text-slate-500;
+  }
+  .td {
+    @apply px-3 py-3 text-sm;
+  }
+  .label {
+    @apply mb-1 block text-sm font-medium text-slate-700;
+  }
+}
+
+/* متن قرارداد */
+.contract-body {
+  line-height: 2;
+  font-size: 15px;
+}
+.contract-body h2 { font-size: 1.4rem; font-weight: 700; margin: 0.5rem 0 1rem; }
+.contract-body h3 { font-size: 1.1rem; font-weight: 700; margin: 1.2rem 0 0.4rem; }
+.contract-body ul { list-style: disc; padding-right: 1.5rem; }
+.contract-body ol { list-style: decimal; padding-right: 1.5rem; }
+.contract-body p { margin: 0.4rem 0; }
+.contract-body table { border-collapse: collapse; width: 100%; }
+.contract-body td, .contract-body th { border: 1px solid #cbd5e1; padding: 6px 10px; }
+
+.editor-area:empty::before {
+  content: attr(data-placeholder);
+  color: #94a3b8;
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white !important; }
+  .print-sheet { box-shadow: none !important; border: none !important; padding: 0 !important; }
+  @page { size: A4; margin: 18mm; }
+}
